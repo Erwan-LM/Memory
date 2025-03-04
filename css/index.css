@@ -1,0 +1,295 @@
+/* Styles de base pour la mise en page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navbar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a, nav ul li button {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+nav ul li a:hover, nav ul li button:hover {
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 50px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Styles pour les formulaires */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Gestion d'erreur */
+.error-message {
+    display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    width: 100%;
+    padding-right: 30px; /* Espace pour l'icône */
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    display: none; /* Caché par défaut */
+}
+
+.success-icon {
+    display: none;
+    filter: brightness(0) saturate(100%) invert(42%) sepia(99%) saturate(349%) hue-rotate(96deg) brightness(88%) contrast(85%);
+}
+
+.error-icon {
+    display: none;
+    filter: brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(7420%) hue-rotate(357deg) brightness(95%) contrast(120%);
+}
+
+/* Complexité du mot de passe */
+.password-strength {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
+    border-radius: 10px;
+}
+
+.weak {
+    background-color: red; 
+}
+
+.medium {
+    background-color: orange; 
+}
+
+.strong {
+    background-color: green;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Section de présentation */
+.presentation {
+    text-align: center;
+    margin: 40px;
+}
+
+.presentation p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.presentation img {
+    width: 200px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.presentation strong {
+    color: #2c3e50;
+}
+
+/* Aligner les éléments de la liste des règles à gauche */
+.rules-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.rules-list li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Profil utilisateur */
+#profile-section {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Messages d'erreur de validation */
+#username-error,
+#email-error,
+#password-error,
+#confirm-password-error {
+    display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#username-error-icon,
+#email-error-icon,
+#password-error-icon,
+#confirm-password-error-icon {
+    display: none;
+}
+
+#username-success-icon,
+#email-success-icon,
+#password-success-icon,
+#confirm-password-success-icon {
+    display: none;
+}
+
+/* Navbar dynamic state */
+#profile-section {
+    font-weight: bold;
+    color: green;
+}
