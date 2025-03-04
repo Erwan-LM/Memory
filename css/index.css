@@ -171,15 +171,6 @@ button:hover {
     display: none; /* Caché par défaut */
 }
 
-.success-icon {
-    display: none;
-    filter: brightness(0) saturate(100%) invert(42%) sepia(99%) saturate(349%) hue-rotate(96deg) brightness(88%) contrast(85%);
-}
-
-.error-icon {
-    display: none;
-    filter: brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(7420%) hue-rotate(357deg) brightness(95%) contrast(120%);
-}
 
 /* Complexité du mot de passe */
 .password-strength {
