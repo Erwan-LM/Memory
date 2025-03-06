@@ -3,28 +3,81 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Empêcher le scroll */
 }
 
+/* Corriger l'alignement du body sans affecter la navbar */
 body {
     font-family: Arial, sans-serif;
     background: radial-gradient(circle at top left, crimson, gold, deepskyblue);
-    background-attachment: fixed; 
-    background-size: cover; 
+    background-attachment: fixed;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Centrer tout le contenu verticalement */
     text-align: center;
     color: azure;
-    min-height: 100vh; 
+    min-height: 100vh;
+    padding-top: 60px;  /* Ajout d'un espace en haut pour la navbar */
+    box-sizing: border-box; /* Assurer que tout reste dans la page */
 }
 
+/* Spécifique à la navbar, pour s'assurer qu'elle est fixe en haut */
+header {
+    position: fixed; /* Fixer la navbar en haut */
+    top: 0;
+    left: 0;
+    width: 100%;
+}
 
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Centrer le score et le timer côte à côte avec une taille plus petite */
+#score, #timer {
+    font-size: 2em;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre discrète pour améliorer la lisibilité */
+    margin: 0 15px; /* Espacement horizontal entre les éléments */
+    color: transparent; /* Masquer la couleur initiale */
+    display: inline-block; /* Aligner les deux éléments horizontalement */
+    z-index: 5;
+    transition: transform 0.3s ease;
+}
+
+/* Appliquer des couleurs modernes et douces pour les chiffres uniquement */
+#score span, #timer span {
+    color: inherit; /* Hériter de la couleur de chaque élément */
+    font-size: 1.5em; /* Réduire la taille des chiffres */
+}
+
+/* Appliquer des couleurs distinctes */
+#score {
+    color: #2ecc71; /* Vert moderne pour le score */
+}
+
+#timer {
+    color: #e74c3c; /* Rouge vif pour le timer */
+}
+
+/* Pour donner un effet interactif quand on survole le score ou le timer */
+#score:hover, #timer:hover {
+    transform: scale(1.1);
+}
+
+/* Grille de mémoire positionnée correctement sous le score et le timer */
 .grid {
     display: grid;
     gap: 10px;
     justify-content: center;
     margin: 0 auto;
+    margin-top: 5vh;  /* Ajuster la grille pour qu'elle ne chevauche pas les éléments au-dessus */
 }
 
 .grid img {
@@ -33,7 +86,6 @@ body {
     height: 80px;
     transition: transform 0.6s ease-in-out;
 }
-
 
 .grid img.flip {
     transform: rotateY(360deg);
@@ -58,6 +110,7 @@ body {
     transform: rotateY(180deg);
 }
 
+/* Popup de victoire */
 .popup {
     position: fixed;
     top: 50%;

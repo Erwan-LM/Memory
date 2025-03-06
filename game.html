@@ -18,7 +18,7 @@
                 <li><button id="btn-connexion">Se connecter</button></li>
                 <li><button id="btn-logout" style="display: none;">Déconnexion</button></li>
                 <li><a href="profil.html">Profil</a></li>
-                <li><a href="game.html">Jouer</a></li>
+                <li><a href="scores.html">Ranking</a></li>
                 <li id="profil-section"></li>
             </ul>
         </nav>
@@ -86,13 +86,14 @@
           <button type="submit">Se connecter</button>
       </form>
     </header>
+ 
+    <p id="score"> Score: 100</p>
+    <p id="timer">Temps restant: 60s</p>
     
-        <h3>Score:<span id="result"></span></h3>
-
         <div class="grid">
-         
         </div>
         <script type="module" src="js/index.js"></script>
         <script src="js/game.js" charset="utf-8"></script>
+        <script src="js/login.js"></script>
 </body>
 </html>

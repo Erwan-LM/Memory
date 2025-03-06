@@ -22,6 +22,7 @@ let confirmPasswordSuccessIcon = document.getElementById('confirm-password-succe
 
 // Récupérer le bouton de fermeture
 let closeModalBtn = document.getElementById("close-modal-btn");
+
 // Fonction pour fermer le modal
 function closeModal() {
     modalInscription.style.display = "none";
@@ -42,7 +43,7 @@ btnInscription.onclick = function() {
     modalInscription.style.display = "block";
 }
 
-// Fermer le modal si on clique sur la croix
+// Fermer le modal 
 closeInscription.onclick = function() {
     closeModal();
 }
@@ -53,34 +54,46 @@ function checkIfUserExists(login, email) {
     return users.some(user => user.login === login || user.email === email);
 }
 
-// Fonction pour enregistrer un utilisateur
+// Fonction pour enregistrer un utilisateur avec un mot de passe chiffré
 function registerUser(username, email, password) {
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push({ login: username, email: email, password: password });
+    
+    // Chiffrement du mot de passe
+    let encryptedPassword = CryptoJS.AES.encrypt(password, 'secret-key').toString(); // Utilisation d'une clé secrète pour chiffrer le mot de passe
+
+    // Enregistrer l'utilisateur avec le mot de passe chiffré
+    users.push({ login: username, email: email, password: encryptedPassword });
     localStorage.setItem('users', JSON.stringify(users));
+
 }
 
 // Vérification de la validité de l'email
 function isValidEmail(email) {
+    // Expression régulière pour valider l'email
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    return emailRegex.test(email);
+    return emailRegex.test(email);  // Teste l'email avec l'expression régulière
 }
 
 // Vérification du mot de passe avec le nouveau regex
 function isValidPassword(password) {
-    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-;
-    return passwordRegex.test(password);
+    // Expression régulière pour vérifier la complexité du mot de passe :
+    // - Au moins 8 caractères
+    // - Au moins 1 majuscule
+    // - Au moins 1 minuscule
+    // - Au moins 1 chiffre
+    // - Au moins 1 caractère spécial parmi #?!@$%^&*-
+    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    return passwordRegex.test(password);  // Teste le mot de passe avec l'expression régulière
 }
 
 // Vérification des critères du login
 function isValidUsername(username) {
-    return username.length >= 3;
+    return username.length >= 3;  // Le login doit avoir au moins 3 caractères
 }
 
 // Vérification des critères de confirmation de mot de passe
 function isPasswordMatching(password, confirmPassword) {
-    return password === confirmPassword;
+    return password === confirmPassword;  // Vérifie que le mot de passe et la confirmation sont identiques
 }
 
 // Mise à jour des icônes et messages de validation
@@ -116,7 +129,7 @@ confirmPasswordInput.addEventListener('input', () => {
 
 // Gestion de l'inscription
 formInscription.onsubmit = function(event) {
-    event.preventDefault();
+    event.preventDefault();  // Empêche le comportement par défaut du formulaire
 
     let username = usernameInput.value;
     let email = emailInput.value;
@@ -124,6 +137,7 @@ formInscription.onsubmit = function(event) {
     let confirmPassword = confirmPasswordInput.value;
     let valid = true;
 
+    // Validation des champs
     if (!isValidUsername(username)) {
         updateValidation(usernameInput, false, document.getElementById('username-error'), usernameErrorIcon, "Le login doit contenir au moins 3 caractères.");
         valid = false;
@@ -144,14 +158,15 @@ formInscription.onsubmit = function(event) {
         valid = false;
     }
 
-    if (!valid) return;
+    if (!valid) return;  // Si un champ est invalide, ne pas soumettre le formulaire
 
+    // Vérifie si l'utilisateur existe déjà
     if (checkIfUserExists(username, email)) {
         showMessage("Le login ou l'email est déjà utilisé.");
     } else {
         registerUser(username, email, password);
         showMessage("Inscription réussie !");
-        modalInscription.style.display = "none";
+        modalInscription.style.display = "none";  // Ferme le modal après inscription
     }
 };
 
@@ -163,7 +178,7 @@ function showMessage(message) {
     document.body.appendChild(messageDiv);
 
     setTimeout(() => {
-        messageDiv.remove();
+        messageDiv.remove();  // Supprime le message après 2 secondes
     }, 2000);
 }
 
@@ -172,30 +187,32 @@ function evaluatePasswordStrength(password) {
     let strength = 0;
 
     // Critères de complexité du mot de passe
-    const lengthRegex = /.{8,}/; // Min 8 caractères
-    const lowercaseRegex = /[a-z]/; // Au moins une minuscule
-    const uppercaseRegex = /[A-Z]/; // Au moins une majuscule
-    const digitRegex = /[0-9]/; // Au moins un chiffre
-    const specialCharRegex = /[#?!@$%^&*-]/; // Au moins un caractère spécial
+    const lengthRegex = /.{8,}/;  // Au moins 8 caractères
+    const lowercaseRegex = /[a-z]/;  // Au moins une minuscule
+    const uppercaseRegex = /[A-Z]/;  // Au moins une majuscule
+    const digitRegex = /[0-9]/;  // Au moins un chiffre
+    const specialCharRegex = /[#?!@$%^&*-]/;  // Au moins un caractère spécial
 
+    // On incrémente la force si le critère est respecté
     if (lengthRegex.test(password)) strength++;
     if (lowercaseRegex.test(password)) strength++;
     if (uppercaseRegex.test(password)) strength++;
     if (digitRegex.test(password)) strength++;
     if (specialCharRegex.test(password)) strength++;
 
-    return strength;
+    return strength;  // Retourne la force du mot de passe
 }
 
 // Fonction pour mettre à jour la barre de progression du mot de passe
 function updatePasswordStrengthBar(password) {
     const strength = evaluatePasswordStrength(password);
-    const strengthBar = document.getElementById('password-strength-bar'); // Barre de progression
-    const strengthText = document.getElementById('password-strength-text'); // Texte de complexité
+    const strengthBar = document.getElementById('password-strength-bar');  // Barre de progression
+    const strengthText = document.getElementById('password-strength-text');  // Texte de complexité
 
     let strengthClass = '';
     let width = 0;
 
+    // Mise à jour de la barre en fonction de la force
     if (strength === 1) {
         width = 25;
         strengthClass = 'weak';
@@ -218,7 +235,7 @@ function updatePasswordStrengthBar(password) {
 // Ajout d'un écouteur pour vérifier la force du mot de passe pendant la saisie
 passwordInput.addEventListener('input', () => {
     updateValidation(passwordInput, isValidPassword(passwordInput.value), document.getElementById('password-error'), passwordErrorIcon, "Le mot de passe doit contenir au moins 8 caractères, avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.");
-    updatePasswordStrengthBar(passwordInput.value); // Mise à jour de la barre de force
+    updatePasswordStrengthBar(passwordInput.value);  // Mise à jour de la barre de force
 });
 
 // Ajouter du style CSS pour les messages

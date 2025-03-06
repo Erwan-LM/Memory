@@ -62,3 +62,6 @@ window.addEventListener('storage', function(event) {
 btnLogout.addEventListener('click', function() {
     logoutUser();
 });
+
+
+
