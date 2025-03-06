@@ -1,0 +1,116 @@
+/* Carte de profil */
+.profile-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #38393b, #c2e9fb); 
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    height: 400px;
+    position: relative;
+}
+
+.card-content {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+}
+
+.card-content h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#user-profile {
+    margin-bottom: 20px;
+}
+
+#user-name {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Centrer le logo dans la carte */
+.profile-logo {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.7;
+}
+
+.profile-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+
+/* Carte des paramètres */
+.settings-card {
+    background: linear-gradient(135deg, #38393b, #c2e9fb); 
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.settings-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+button {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#theme-image-container {
+    width: 100%; /* S'assure que le conteneur occupe toute la largeur de la carte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Espacement vertical autour de l'image */
+}
+
+/* Style pour l'image du thème */
+#theme-image {
+    max-width: 200px; /* Limite la taille maximale de l'image */
+    max-height: 200px; /* Limite la hauteur maximale de l'image */
+    width: auto; /* Assure que l'image garde son ratio */
+    height: auto; /* Idem pour la hauteur */
+    object-fit: contain; /* L'image garde son ratio sans déformation */
+    border-radius: 10px; /* Bord arrondi pour l'image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère autour de l'image */
+}
+
+#theme-image {
+    display: none;
+}

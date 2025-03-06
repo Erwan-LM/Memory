@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+    <header>
+      <h1>Memory Game</h1>
+        <!-- Navbar -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><button id="btn-inscription">S'inscrire</button></li>
+                <li><button id="btn-connexion">Se connecter</button></li>
+                <li><button id="btn-logout" style="display: none;">Déconnexion</button></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="game.html">Jouer</a></li>
+                <li id="profil-section"></li>
+            </ul>
+        </nav>
+        <!-- Modals  -->
+<div id="modal-inscription" class="modal">
+  <div class="modal-content">
+      <span class="close" id="close-inscription">&times;</span>
+      <h2>Inscription</h2>
+      <form>
+          <label for="username">Nom d'utilisateur</label>
+          <div class="input-container">
+              <input type="text" id="username" name="username" required>
+              <img src="ressources/error.svg" class="icon error-icon" id="username-error-icon">
+              <img src="ressources/check.svg" class="icon success-icon" id="username-success-icon">
+          </div>
+          <span id="username-error" class="error-message">Le login doit contenir au moins 3 caractères.</span>
+  
+          <label for="email">Email</label>
+          <div class="input-container">
+              <input type="email" id="email" name="email" required>
+              <img src="ressources/error.svg" class="icon error-icon" id="email-error-icon">
+              <img src="ressources/check.svg" class="icon success-icon" id="email-success-icon">
+          </div>
+          <span id="email-error" class="error-message">Veuillez entrer un email valide.</span>
+  
+          <label for="password">Mot de passe</label>
+  <div class="input-container">
+  <input type="password" id="password" name="password" required>
+  <img src="ressources/error.svg" class="icon error-icon" id="password-error-icon">
+  <img src="ressources/check.svg" class="icon success-icon" id="password-success-icon">
+  </div>
+  <span id="password-error" class="error-message">Le mot de passe doit contenir au moins 8 caractères, avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.</span>
+  
+  <!-- Barre de complexité du mot de passe -->
+  <div class="password-strength">
+  <div id="password-strength-bar" class="strength-bar"></div>
+  <span id="password-strength-text">Complexité :</span>
+  </div>
+  
+  <label for="confirm-password">Confirmer le mot de passe</label>
+  <div class="input-container">
+  <input type="password" id="confirm-password" name="confirm-password" required>
+  <img src="ressources/error.svg" class="icon error-icon" id="confirm-password-error-icon">
+  <img src="ressources/check.svg" class="icon success-icon" id="confirm-password-success-icon">
+  </div>
+  <span id="confirm-password-error" class="error-message">Les mots de passe ne correspondent pas.</span>
+  
+  
+          <button type="submit">S'inscrire</button>
+          <button id="close-modal-btn" class="close-modal-btn">Fermer</button>
+      </form>
+  </div>
+  </div>
+  
+  <!-- Modals  connexion -->
+  <div id="modal-connexion" class="modal">
+  <div class="modal-content">
+      <span class="close" id="close-connexion">&times;</span>
+      <h2>Se connecter</h2>
+      <form id="login-form">
+          <label for="login">Login</label>
+          <input type="text" id="login" name="login" required>
+          <label for="password-login">Mot de passe</label>
+          <input type="password" id="password-login" name="password-login" required>
+          <button type="submit">Se connecter</button>
+      </form>
+    </header>
+    
+        <h3>Score:<span id="result"></span></h3>
+
+        <div class="grid">
+         
+        </div>
+        <script type="module" src="js/index.js"></script>
+        <script src="js/game.js" charset="utf-8"></script>
+</body>
+</html>

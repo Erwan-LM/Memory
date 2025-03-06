@@ -1,38 +1,42 @@
 html, body {
     height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: Arial, sans-serif;
     background: radial-gradient(circle at top left, crimson, gold, deepskyblue);
-    margin: 0;
-    padding: 0;
+    background-attachment: fixed; 
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: azure;
+    min-height: 100vh; 
 }
 
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    gap: 10px;
     justify-content: center;
-    width: 400px;
-    height: 300px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .grid img {
-    margin: 10px;
     border: 2px solid #333;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     transition: transform 0.6s ease-in-out;
-    transform-style: preserve-3d;
-    position: relative;
 }
 
+
 .grid img.flip {
-    transform: rotateY(180deg);
+    transform: rotateY(360deg);
 }
 
 .grid img::before,
@@ -45,7 +49,7 @@ body {
 }
 
 .grid img::before {
-    background: url('images/blank.png') no-repeat center center;
+    background: url('../ressources/back.png') no-repeat center center;
     background-size: cover;
 }
 

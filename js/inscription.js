@@ -68,7 +68,8 @@ function isValidEmail(email) {
 
 // Vérification du mot de passe avec le nouveau regex
 function isValidPassword(password) {
-    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+;
     return passwordRegex.test(password);
 }
 

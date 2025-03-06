@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <header>
+        <h1>Jeu de Memory</h1>
+        <nav>
+            <ul>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="index.html">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="game-info">
+            <h3>Score: <span id="result">100</span></h3>
+            <h3>Temps restant: <span id="timer">60</span>s</h3>
+        </section>
+
+        <!-- Carte de jeu -->
+        <section class="game-board">
+            <!-- Carte Memory sera générée dynamiquement ici -->
+        </section>
+
+        <!-- Popup de fin de jeu -->
+        <div id="game-over-modal" class="modal">
+            <div class="modal-content">
+                <h2>Partie terminée!</h2>
+                <p id="game-result">Vous avez perdu.</p>
+                <button id="save-score">Enregistrer le score</button>
+                <button id="close-modal" class="close-modal-btn">Fermer</button>
+            </div>
+        </div>
+    </main>
+    <script src="js/scores.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

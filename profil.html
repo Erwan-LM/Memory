@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENI - Memory - Profil</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/profil.css">
+</head>
+<body>
+
+    <!-- Header avec le titre -->
+    <header>
+        <h1>Profil</h1>
+        <!-- Navbar -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><button id="btn-inscription">S'inscrire</button></li>
+                <li><button id="btn-connexion">Se connecter</button></li>
+                <li><button id="btn-logout" style="display: none;">Déconnexion</button></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="game.html" class="startGame">Jouer</a></li>
+                <li id="profil-section"></li>
+            </ul>
+        </nav>
+        <!-- Modals  -->
+<div id="modal-inscription" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-inscription">&times;</span>
+        <h2>Inscription</h2>
+        <form>
+            <label for="username">Nom d'utilisateur</label>
+            <div class="input-container">
+                <input type="text" id="username" name="username" required>
+                <img src="ressources/error.svg" class="icon error-icon" id="username-error-icon">
+                <img src="ressources/check.svg" class="icon success-icon" id="username-success-icon">
+            </div>
+            <span id="username-error" class="error-message">Le login doit contenir au moins 3 caractères.</span>
+    
+            <label for="email">Email</label>
+            <div class="input-container">
+                <input type="email" id="email" name="email" required>
+                <img src="ressources/error.svg" class="icon error-icon" id="email-error-icon">
+                <img src="ressources/check.svg" class="icon success-icon" id="email-success-icon">
+            </div>
+            <span id="email-error" class="error-message">Veuillez entrer un email valide.</span>
+    
+            <label for="password">Mot de passe</label>
+    <div class="input-container">
+    <input type="password" id="password" name="password" required>
+    <img src="ressources/error.svg" class="icon error-icon" id="password-error-icon">
+    <img src="ressources/check.svg" class="icon success-icon" id="password-success-icon">
+    </div>
+    <span id="password-error" class="error-message">Le mot de passe doit contenir au moins 8 caractères, avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.</span>
+    
+    <!-- Barre de complexité du mot de passe -->
+    <div class="password-strength">
+    <div id="password-strength-bar" class="strength-bar"></div>
+    <span id="password-strength-text">Complexité :</span>
+    </div>
+    
+    <label for="confirm-password">Confirmer le mot de passe</label>
+    <div class="input-container">
+    <input type="password" id="confirm-password" name="confirm-password" required>
+    <img src="ressources/error.svg" class="icon error-icon" id="confirm-password-error-icon">
+    <img src="ressources/check.svg" class="icon success-icon" id="confirm-password-success-icon">
+    </div>
+    <span id="confirm-password-error" class="error-message">Les mots de passe ne correspondent pas.</span>
+    
+    
+            <button type="submit">S'inscrire</button>
+            <button id="close-modal-btn" class="close-modal-btn">Fermer</button>
+        </form>
+    </div>
+    </div>
+    <!-- Modals  connexion -->
+    <div id="modal-connexion" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-connexion">&times;</span>
+        <h2>Se connecter</h2>
+        <form id="login-form">
+            <label for="login">Login</label>
+            <input type="text" id="login" name="login" required>
+            <label for="password-login">Mot de passe</label>
+            <input type="password" id="password-login" name="password-login" required>
+            <button type="submit">Se connecter</button>
+        </form>
+    </header>
+
+    <!-- Carte de profil -->
+    <section class="profile-card">
+        <div class="card-content">
+            <h2>Mon Profil</h2>
+            <div id="user-profile">
+                <p id="welcome-message">Bienvenue, <span id="user-name">Utilisateur</span></p>
+            </div>
+            <img src="ressources/question.svg" alt="Logo" class="profile-logo"> <!-- Logo centré dans la carte -->
+        </div>
+    </section>
+
+    <!-- Carte de paramètres (settings) -->
+    <section class="settings-card">
+        <h2>Paramètres du jeu</h2>
+        <div class="settings">
+            <label for="theme">Thème :</label>
+            <select id="theme">
+                <option value="alphabet">Alphabet</option>
+                <option value="animaux">Animaux</option>
+                <option value="animauxAnimes">Animaux animés</option>
+                <option value="animauxDom">Animaux domestiques</option>
+                <option value="chiens">Chiens</option>
+                <option value="dino">Dinosaures</option>
+                <option value="dinoName">Dinosaure avec nom</option>
+                <option value="legumes">Légumes</option>
+                <option value="food">Fast Food</option>
+            </select>
+    
+            <label for="size">Taille :</label>
+            <select id="size">
+                <option value="4">4x4</option>
+                <option value="6">6x6</option>
+                <option value="8">8x8</option>
+            </select>
+    
+            <button id="startGame">Démarrer</button>
+        </div>
+        <!-- Image associée au thème sélectionné -->
+        <div id="theme-image-container">
+            <img id="theme-image" src="" alt="Image du thème" style="display: none;">
+        </div>
+    </section>
+    
+    <script type="module" src="js/index.js"></script>
+    <script src="js/profil.js"></script>
+    
+</body>
+</html>

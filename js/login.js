@@ -17,11 +17,13 @@ formConnexion.onsubmit = function(event) {
         localStorage.setItem('connectedUser', JSON.stringify(user));
         showMessage("Connexion réussie !");
         modalConnexion.style.display = "none";
-        checkUserConnection();
+        // Mettre à jour l'interface utilisateur après la connexion
+        updateUserInterface();
     } else {
         showMessage("Login ou mot de passe incorrect.");
     }
 }
+
 
 // Fonction pour afficher un message temporaire
 function showMessage(message) {
@@ -53,18 +55,22 @@ function loginUser(username, password) {
     return users.find(user => user.login === username && user.password === password);
 }
 
-// Vérifier la connexion utilisateur au chargement de la page
-function checkUserConnection() {
+// Mettre à jour l'interface utilisateur en fonction de l'état de la connexion
+function updateUserInterface() {
     let connectedUser = JSON.parse(localStorage.getItem('connectedUser'));
-    if (connectedUser) {
+    let profileSection = document.getElementById('profile-section');
+    let btnConnexion = document.getElementById('btn-connexion');
+    let btnLogout = document.getElementById('btn-logout');
+
+    if (profileSection && connectedUser) {
         // Mettre à jour le profil utilisateur et afficher le bouton de déconnexion
-        document.getElementById('profile-section').innerHTML = `${connectedUser.login} (Connecté)`;
-        document.getElementById('btn-connexion').style.display = 'none';
-        document.getElementById('btn-logout').style.display = 'inline-block';
-    } else {
-        document.getElementById('profile-section').innerHTML = '';
-        document.getElementById('btn-connexion').style.display = 'inline-block';
-        document.getElementById('btn-logout').style.display = 'none';
+        profileSection.innerHTML = `${connectedUser.login} (Connecté)`;
+        btnConnexion.style.display = 'none';
+        btnLogout.style.display = 'inline-block';
+    } else if (profileSection) {
+        profileSection.innerHTML = '';
+        btnConnexion.style.display = 'inline-block';
+        btnLogout.style.display = 'none';
     }
 }
 
@@ -72,10 +78,10 @@ function checkUserConnection() {
 document.getElementById('btn-logout').onclick = function() {
     localStorage.removeItem('connectedUser');
     showMessage("Vous êtes déconnecté.");
-    checkUserConnection();
+    updateUserInterface(); // Mettre à jour l'interface après la déconnexion
 }
 
 // Vérifier si l'utilisateur est déjà connecté au chargement
 window.onload = function() {
-    checkUserConnection();
+    updateUserInterface();
 }

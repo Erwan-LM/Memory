@@ -18,29 +18,13 @@
                 <li><button id="btn-inscription">S'inscrire</button></li>
                 <li><button id="btn-connexion">Se connecter</button></li>
                 <li><button id="btn-logout" style="display: none;">Déconnexion</button></li>
-                <li><a href="profile.html">Profil</a></li>
-                <li><a href="setting.html">Joueur</a></li>
-                <li id="profile-section"></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="game.html">Jouer</a></li>
+                <li id="profil-section"></li>
             </ul>
         </nav>
-    </header>
 
-    <!-- Carte de présentation -->
-    <section class="presentation">
-        <p>Bienvenue sur mon Memory!</p>
-        <p>Venez jouer avec nous et faites le meilleur score possible.</p>
-        <p><strong>Règle du jeu :</strong></p>
-        <ul class="rules-list">
-            <li>Retournez deux cartes. Si les images sont identiques, le jeu laisse les cartes visibles.</li>
-            <li>Si les images sont différentes, les cartes se retournent faces cachées à leur emplacement initial.</li>
-            <li>La partie est terminée lorsque toutes les cartes ont été assemblées par paires.</li>
-        </ul>
-        <p><img src="ressources/legumes/memory_detail.png" alt="Image centrale"></p>
-        <p>Si vous voulez vous souvenir de votre score, inscrivez-vous via le formulaire. Le jeu garde les 10 meilleurs scores.</p>
-        <p>Si vous voulez relancer une partie, cliquez sur la barre d'espace ou le bouton rejouer.</p>
-    </section>
-
-    <!-- Modals  -->
+         <!-- Modals  inscription -->
     <div id="modal-inscription" class="modal">
         <div class="modal-content">
             <span class="close" id="close-inscription">&times;</span>
@@ -91,7 +75,7 @@
         </div>
     </div>
     
-
+<!-- Modals  connexion -->
     <div id="modal-connexion" class="modal">
         <div class="modal-content">
             <span class="close" id="close-connexion">&times;</span>
@@ -105,6 +89,22 @@
             </form>
         </div>
     </div>    
+    </header>
+
+    <!-- Carte de présentation -->
+    <section class="presentation">
+        <p>Bienvenue sur mon Memory!</p>
+        <p>Venez jouer avec nous et faites le meilleur score possible.</p>
+        <p><strong>Règle du jeu :</strong></p>
+        <ul class="rules-list">
+            <li>Retournez deux cartes. Si les images sont identiques, le jeu laisse les cartes visibles.</li>
+            <li>Si les images sont différentes, les cartes se retournent faces cachées à leur emplacement initial.</li>
+            <li>La partie est terminée lorsque toutes les cartes ont été assemblées par paires.</li>
+        </ul>
+        <p><img src="ressources/legumes/memory_detail.png" alt="Image centrale"></p>
+        <p>Si vous voulez vous souvenir de votre score, inscrivez-vous via le formulaire. Le jeu garde les 10 meilleurs scores.</p>
+        <p>Si vous voulez relancer une partie, cliquez sur la barre d'espace ou le bouton rejouer.</p>
+    </section>
 
     <script type="module" src="js/index.js"></script>
 </body>
