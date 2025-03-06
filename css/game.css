@@ -1,167 +1,179 @@
 html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Empêcher le scroll */
+    height: 100%;                  /* Assurer que l'élément html et body prennent toute la hauteur de l'écran */
+    width: 100%;                   /* Assurer que l'élément html et body prennent toute la largeur de l'écran */
+    margin: 0;                     /* Enlever la marge par défaut autour du body */
+    padding: 0;                    /* Enlever le padding par défaut autour du body */
+    overflow: hidden;              /* Empêcher le défilement (scrolling) de la page */
 }
 
-/* Corriger l'alignement du body sans affecter la navbar */
+/* Définition du style général du body */
 body {
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top left, crimson, gold, deepskyblue);
-    background-attachment: fixed;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Centrer tout le contenu verticalement */
-    text-align: center;
-    color: azure;
-    min-height: 100vh;
-    padding-top: 60px;  /* Ajout d'un espace en haut pour la navbar */
-    box-sizing: border-box; /* Assurer que tout reste dans la page */
+    font-family: Arial, sans-serif;    /* Définir la police de caractères */
+    background: radial-gradient(circle at top left, crimson, gold, deepskyblue); /* Dégradé de couleurs en fond */
+    background-attachment: fixed;      /* Fixer l'image de fond pour qu'elle ne défile pas */
+    background-size: cover;           /* Couvrir toute la zone avec l'image de fond */
+    display: flex;                     /* Utiliser Flexbox pour la mise en page */
+    flex-direction: column;            /* Aligner les éléments en colonne */
+    align-items: center;               /* Centrer les éléments horizontalement */
+    justify-content: center;           /* Centrer les éléments verticalement */
+    text-align: center;                /* Centrer le texte */
+    color: azure;                      /* Définir la couleur du texte */
+    min-height: 100vh;                 /* Assurer que la hauteur minimale de la page est de 100vh */
+    padding-top: 60px;                 /* Ajouter un espace en haut pour la navbar fixe */
+    box-sizing: border-box;            /* S'assurer que les paddings et borders ne dépassent pas la taille des éléments */
 }
 
-/* Spécifique à la navbar, pour s'assurer qu'elle est fixe en haut */
+/* Définir le style de la navbar */
 header {
-    position: fixed; /* Fixer la navbar en haut */
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: fixed;                  /* Fixer la navbar en haut de la page */
+    top: 0;                            /* Placer la navbar tout en haut */
+    left: 0;                           /* Placer la navbar tout à gauche */
+    width: 100%;                       /* Prendre toute la largeur de l'écran */
 }
 
+/* Style des éléments de navigation */
 nav ul {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    margin: 0;
-    list-style: none;
+    display: flex;                    /* Utiliser Flexbox pour la mise en page des éléments */
+    justify-content: center;           /* Centrer les éléments horizontalement */
+    padding: 10px 0;                   /* Espacement vertical autour des éléments */
+    margin: 0;                         /* Enlever la marge par défaut */
+    list-style: none;                  /* Enlever les puces de la liste */
 }
 
-/* Centrer le score et le timer côte à côte avec une taille plus petite */
+/* Style des éléments de score et timer */
 #score, #timer {
-    font-size: 2em;
-    font-weight: 600;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ombre discrète pour améliorer la lisibilité */
-    margin: 0 15px; /* Espacement horizontal entre les éléments */
-    color: transparent; /* Masquer la couleur initiale */
-    display: inline-block; /* Aligner les deux éléments horizontalement */
-    z-index: 5;
-    transition: transform 0.3s ease;
+    font-size: 2em;                    /* Définir la taille de la police pour le score et le timer */
+    font-weight: 600;                  /* Mettre en gras le texte */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ajouter une ombre pour améliorer la lisibilité */
+    margin: 0 15px;                    /* Espacement horizontal entre les éléments */
+    color: transparent;                /* Rendre le texte transparent (les couleurs seront appliquées sur les chiffres) */
+    display: inline-block;             /* Aligner les éléments horizontalement */
+    z-index: 5;                        /* Assurer que ces éléments soient au-dessus des autres */
+    transition: transform 0.3s ease;   /* Ajouter une transition pour un effet interactif au survol */
 }
 
-/* Appliquer des couleurs modernes et douces pour les chiffres uniquement */
+/* Style pour les chiffres dans le score et le timer */
 #score span, #timer span {
-    color: inherit; /* Hériter de la couleur de chaque élément */
-    font-size: 1.5em; /* Réduire la taille des chiffres */
+    color: inherit;                    /* Hériter de la couleur du parent (score ou timer) */
+    font-size: 1.5em;                   /* Réduire la taille des chiffres */
 }
 
-/* Appliquer des couleurs distinctes */
+/* Définir la couleur du score */
 #score {
-    color: #2ecc71; /* Vert moderne pour le score */
+    color: #2ecc71;                    /* Vert moderne pour le score */
 }
 
+/* Définir la couleur du timer */
 #timer {
-    color: #e74c3c; /* Rouge vif pour le timer */
+    color: #e74c3c;                    /* Rouge vif pour le timer */
 }
 
-/* Pour donner un effet interactif quand on survole le score ou le timer */
+/* Effet interactif au survol du score ou du timer */
 #score:hover, #timer:hover {
-    transform: scale(1.1);
+    transform: scale(1.1);             /* Agrandir légèrement l'élément au survol */
 }
 
-/* Grille de mémoire positionnée correctement sous le score et le timer */
+/* Style pour la grille de jeu */
 .grid {
-    display: grid;
-    gap: 10px;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 5vh;  /* Ajuster la grille pour qu'elle ne chevauche pas les éléments au-dessus */
+    display: grid;                     /* Utiliser une grille CSS pour la disposition */
+    gap: 10px;                         /* Espacement entre les éléments de la grille */
+    justify-content: center;           /* Centrer les éléments horizontalement */
+    margin: 0 auto;                    /* Centrer la grille */
+    margin-top: 5vh;                   /* Ajouter un espacement vertical pour éviter les chevauchements */
 }
 
+/* Style des cartes dans la grille */
 .grid img {
-    border: 2px solid #333;
-    width: 80px;
-    height: 80px;
-    transition: transform 0.6s ease-in-out;
+    border: 2px solid #333;            /* Ajouter une bordure autour des cartes */
+    width: 80px;                       /* Définir la largeur des cartes */
+    height: 80px;                      /* Définir la hauteur des cartes */
+    transition: transform 0.6s ease-in-out; /* Ajouter une transition pour l'effet de rotation */
 }
 
+/* Effet de rotation des cartes quand elles sont retournées */
 .grid img.flip {
-    transform: rotateY(360deg);
+    transform: rotateY(360deg);        /* Rotation complète sur l'axe Y pour l'effet de retournement */
 }
 
+/* Style pour l'avant et l'arrière des cartes */
 .grid img::before,
 .grid img::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
+    content: '';                        /* Créer un contenu vide */
+    position: absolute;                 /* Positionner les éléments avant et après sur la carte */
+    width: 100%;                        /* Prendre toute la largeur de la carte */
+    height: 100%;                       /* Prendre toute la hauteur de la carte */
+    backface-visibility: hidden;        /* Masquer la face arrière de la carte lors de la rotation */
 }
 
+/* Style pour l'arrière de la carte */
 .grid img::before {
-    background: url('../ressources/back.png') no-repeat center center;
-    background-size: cover;
+    background: url('../ressources/back.png') no-repeat center center; /* Image de fond pour l'arrière de la carte */
+    background-size: cover;            /* Couvrir la carte avec l'image */
 }
 
+/* Style pour la face avant de la carte */
 .grid img::after {
-    background-size: cover;
-    transform: rotateY(180deg);
+    background-size: cover;            /* Couvrir la carte avec l'image */
+    transform: rotateY(180deg);         /* Retourner l'élément de 180 degrés pour montrer la face avant */
 }
 
-/* Popup de victoire */
+/* Style du popup de victoire */
 .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 1.5em;
-    z-index: 1000;
-    text-align: center;
+    position: fixed;                   /* Fixer le popup au centre de l'écran */
+    top: 50%;                           /* Centrer verticalement */
+    left: 50%;                          /* Centrer horizontalement */
+    transform: translate(-50%, -50%);   /* Appliquer une translation pour centrer précisément */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre avec opacité pour le popup */
+    color: white;                       /* Texte en blanc */
+    padding: 20px;                      /* Espacement autour du texte */
+    border-radius: 10px;                /* Coins arrondis pour le popup */
+    font-size: 1.5em;                   /* Taille de la police du texte */
+    z-index: 1000;                      /* Placer le popup au-dessus des autres éléments */
+    text-align: center;                 /* Centrer le texte */
 }
 
+/* Style de l'écran de victoire */
 .victory-screen {
-    position: fixed;
+    position: fixed;                   /* Fixer l'écran de victoire en haut */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    width: 100%;                        /* Prendre toute la largeur de l'écran */
+    height: 100%;                       /* Prendre toute la hauteur de l'écran */
+    background: rgba(0, 0, 0, 0.8);    /* Fond sombre avec opacité */
+    display: flex;                      /* Utiliser Flexbox pour centrer le contenu */
+    justify-content: center;            /* Centrer horizontalement */
+    align-items: center;                /* Centrer verticalement */
+    z-index: 1000;                      /* Placer l'écran au-dessus des autres éléments */
 }
 
+/* Style du contenu de la victoire */
 .victory-content {
-    background: white;
-    color: black;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+    background: white;                  /* Fond blanc pour le contenu */
+    color: black;                       /* Texte noir */
+    padding: 20px;                      /* Espacement autour du contenu */
+    border-radius: 10px;                /* Coins arrondis */
+    text-align: center;                 /* Centrer le texte */
 }
 
+/* Style du titre dans l'écran de victoire */
 .victory-content h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 2em;                     /* Taille du titre */
+    margin-bottom: 10px;                /* Espacement sous le titre */
 }
 
+/* Style du bouton de l'écran de victoire */
 .victory-content button {
-    background: crimson;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
+    background: crimson;               /* Fond rouge pour le bouton */
+    color: white;                       /* Texte blanc pour le bouton */
+    border: none;                       /* Enlever la bordure */
+    padding: 10px 20px;                 /* Espacement à l'intérieur du bouton */
+    font-size: 1.2em;                   /* Taille de la police du bouton */
+    cursor: pointer;                   /* Ajouter un curseur pointer pour l'interactivité */
+    border-radius: 5px;                 /* Coins arrondis pour le bouton */
+    margin-top: 10px;                   /* Espacement au-dessus du bouton */
 }
 
+/* Effet au survol du bouton */
 .victory-content button:hover {
-    background: darkred;
+    background: darkred;                /* Couleur plus sombre au survol */
 }

@@ -1,257 +1,255 @@
 /* Styles de base pour la mise en page */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;   /* Définir la police de caractères principale */
+    margin: 0;                         /* Enlever la marge par défaut autour du body */
+    padding: 0;                        /* Enlever le padding par défaut autour du body */
+    background-color: #f0f0f0;         /* Définir la couleur de fond de la page */
 }
 
 /* Header */
 header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background-color: #2c3e50;         /* Définir la couleur de fond du header */
+    color: white;                      /* Définir la couleur du texte du header */
+    padding: 20px;                     /* Ajouter un padding de 20px autour du texte */
+    text-align: center;                /* Centrer le texte dans le header */
 }
 
 header h1 {
-    margin: 0;
+    margin: 0;                         /* Enlever la marge par défaut autour du titre h1 */
 }
 
 /* Navbar */
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    list-style: none;                  /* Enlever les puces des éléments de la liste */
+    padding: 0;                        /* Enlever le padding par défaut autour de la liste */
+    margin: 10px 0 0;                  /* Ajouter une marge en haut de 10px */
+    display: flex;                     /* Utiliser Flexbox pour la mise en page des éléments */
+    justify-content: center;           /* Centrer les éléments horizontalement */
+    align-items: center;               /* Centrer les éléments verticalement */
 }
 
 nav ul li {
-    margin-right: 20px;
+    margin-right: 20px;                /* Ajouter un espacement de 20px entre les éléments de la liste */
 }
 
 nav ul li a, nav ul li button {
-    color: white;
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 10px 15px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
+    color: white;                      /* Définir la couleur du texte des liens et des boutons */
+    background-color: transparent;     /* Rendre l'arrière-plan transparent */
+    border: none;                      /* Enlever la bordure par défaut */
+    font-size: 16px;                    /* Définir la taille de la police */
+    cursor: pointer;                   /* Ajouter un curseur pointer pour l'interactivité */
+    padding: 10px 15px;                 /* Ajouter un padding de 10px vertical et 15px horizontal */
+    text-align: center;                 /* Centrer le texte dans les éléments */
+    display: flex;                      /* Utiliser Flexbox pour l'alignement des éléments */
+    align-items: center;                /* Centrer verticalement les éléments */
+    justify-content: center;            /* Centrer horizontalement les éléments */
+    height: 40px;                       /* Définir une hauteur de 40px pour les liens et boutons */
 }
 
 nav ul li a:hover, nav ul li button:hover {
-    color: #3498db;
-    border-bottom: 2px solid #3498db;
+    color: #3498db;                     /* Changer la couleur du texte au survol */
+    border-bottom: 2px solid #3498db;   /* Ajouter une bordure en bas de l'élément au survol */
 }
 
 /* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 50px;
+    display: none;                      /* Cacher le modal par défaut */
+    position: fixed;                    /* Fixer le modal à une position fixe sur l'écran */
+    z-index: 1000;                      /* Placer le modal au-dessus des autres éléments */
+    left: 0;                            /* Placer le modal tout à gauche */
+    top: 0;                             /* Placer le modal tout en haut */
+    width: 100%;                        /* Prendre toute la largeur de l'écran */
+    height: 100%;                       /* Prendre toute la hauteur de l'écran */
+    overflow: auto;                     /* Ajouter un défilement si nécessaire */
+    background-color: rgba(0, 0, 0, 0.6); /* Fond sombre transparent pour le modal */
+    padding: 50px;                      /* Ajouter un padding autour du contenu du modal */
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #fff;             /* Fond blanc pour le contenu du modal */
+    margin: 10% auto;                    /* Centrer le contenu avec une marge de 10% en haut et en bas */
+    padding: 30px;                       /* Ajouter un padding autour du contenu */
+    border-radius: 10px;                 /* Arrondir les coins du contenu du modal */
+    width: 90%;                          /* Prendre 90% de la largeur de la fenêtre */
+    max-width: 500px;                    /* Limiter la largeur maximale à 500px */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ajouter une ombre autour du contenu du modal */
+    display: flex;                       /* Utiliser Flexbox pour l'alignement du contenu */
+    flex-direction: column;              /* Aligner les éléments en colonne */
+    align-items: center;                 /* Centrer les éléments horizontalement */
 }
 
 .close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    cursor: pointer;
+    color: #aaa;                         /* Définir la couleur de l'icône de fermeture */
+    font-size: 28px;                     /* Définir la taille de la police de l'icône de fermeture */
+    font-weight: bold;                   /* Mettre l'icône en gras */
+    position: absolute;                  /* Positionner l'icône de fermeture de manière absolue */
+    right: 15px;                         /* Placer l'icône à droite du modal */
+    top: 10px;                           /* Placer l'icône en haut du modal */
+    cursor: pointer;                    /* Ajouter un curseur pointer pour l'interactivité */
 }
 
 .close:hover,
 .close:focus {
-    color: #333;
-    text-decoration: none;
-    cursor: pointer;
+    color: #333;                         /* Changer la couleur de l'icône au survol */
+    text-decoration: none;               /* Enlever la décoration de texte */
+    cursor: pointer;                    /* Ajouter un curseur pointer pour l'interactivité */
 }
 
 .modal-content h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 24px;                     /* Définir la taille de la police du titre dans le modal */
+    margin-bottom: 20px;                 /* Ajouter un espacement de 20px sous le titre */
+    text-align: center;                  /* Centrer le texte du titre */
 }
 
 /* Styles pour les formulaires */
 form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    width: 100%;                         /* Définir la largeur du formulaire à 100% */
+    display: flex;                       /* Utiliser Flexbox pour la mise en page des champs */
+    flex-direction: column;              /* Aligner les champs du formulaire en colonne */
+    gap: 15px;                           /* Ajouter un espacement de 15px entre les champs */
 }
 
 label {
-    font-size: 14px;
-    color: #333;
+    font-size: 14px;                     /* Définir la taille de la police des labels */
+    color: #333;                         /* Définir la couleur des labels */
 }
 
 input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    padding: 10px;                       /* Ajouter un padding de 10px dans les champs de saisie */
+    font-size: 16px;                     /* Définir la taille de la police dans les champs de saisie */
+    border: 1px solid #ccc;              /* Ajouter une bordure grise claire aux champs de saisie */
+    border-radius: 5px;                  /* Arrondir les coins des champs de saisie */
+    width: 100%;                          /* Définir la largeur des champs de saisie à 100% */
+    box-sizing: border-box;              /* Assurer que padding et bordure ne dépassent pas la largeur définie */
+    transition: border-color 0.3s ease;   /* Ajouter une transition pour l'effet au focus */
 }
 
 input:focus {
-    border-color: #3498db;
-    outline: none;
+    border-color: #3498db;               /* Changer la couleur de la bordure au focus */
+    outline: none;                       /* Enlever le contour au focus */
 }
 
 button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px;                       /* Ajouter un padding de 10px dans les boutons */
+    font-size: 16px;                     /* Définir la taille de la police des boutons */
+    background-color: #3498db;           /* Définir la couleur de fond du bouton */
+    color: white;                        /* Définir la couleur du texte du bouton */
+    border: none;                        /* Enlever la bordure des boutons */
+    border-radius: 5px;                  /* Arrondir les coins des boutons */
+    cursor: pointer;                    /* Ajouter un curseur pointer pour l'interactivité */
+    transition: background-color 0.3s ease; /* Ajouter une transition pour l'effet de survol */
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #2980b9;           /* Changer la couleur de fond du bouton au survol */
 }
 
 /* Gestion d'erreur */
 .error-message {
-    display: none;
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
+    display: none;                       /* Cacher le message d'erreur par défaut */
+    color: red;                          /* Définir la couleur du texte en rouge */
+    font-size: 12px;                     /* Définir la taille de la police du message d'erreur */
+    margin-top: 5px;                     /* Ajouter une marge en haut du message d'erreur */
 }
 
 .input-container {
-    position: relative;
-    display: flex;
-    align-items: center;
+    position: relative;                  /* Positionner l'élément par rapport à son parent */
+    display: flex;                        /* Utiliser Flexbox pour l'alignement */
+    align-items: center;                 /* Centrer verticalement les éléments */
 }
 
 .input-container input {
-    width: 100%;
-    padding-right: 30px; /* Espace pour l'icône */
+    width: 100%;                         /* Définir la largeur des champs de saisie à 100% */
+    padding-right: 30px;                 /* Ajouter de l'espace à droite pour l'icône */
 }
 
 .icon {
-    position: absolute;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    display: none; /* Caché par défaut */
+    position: absolute;                  /* Positionner l'icône de manière absolue */
+    right: 10px;                         /* Placer l'icône à droite du champ de saisie */
+    width: 20px;                         /* Définir la taille de l'icône */
+    height: 20px;                        /* Définir la hauteur de l'icône */
+    display: none;                       /* Cacher l'icône par défaut */
 }
-
 
 /* Complexité du mot de passe */
 .password-strength {
-    width: 100%;
-    height: 10px;
-    background-color: #ddd;
-    margin-top: 5px;
-    border-radius: 10px;
+    width: 100%;                         /* Définir la largeur de la barre de force du mot de passe */
+    height: 10px;                        /* Définir la hauteur de la barre */
+    background-color: #ddd;              /* Définir la couleur de fond de la barre */
+    margin-top: 5px;                     /* Ajouter une marge en haut de la barre */
+    border-radius: 10px;                 /* Arrondir les coins de la barre */
 }
 
 .strength-bar {
-    height: 100%;
-    width: 0%;
-    transition: width 0.3s;
-    border-radius: 10px;
+    height: 100%;                        /* Prendre toute la hauteur de la barre */
+    width: 0%;                           /* Définir la largeur à 0% par défaut */
+    transition: width 0.3s;              /* Ajouter une transition pour le changement de largeur */
+    border-radius: 10px;                 /* Arrondir les coins de la barre */
 }
 
 .weak {
-    background-color: red; 
+    background-color: red;              /* Couleur rouge pour une faible sécurité du mot de passe */
 }
 
 .medium {
-    background-color: orange; 
+    background-color: orange;           /* Couleur orange pour une sécurité moyenne du mot de passe */
 }
 
 .strong {
-    background-color: green;
+    background-color: green;            /* Couleur verte pour une bonne sécurité du mot de passe */
 }
 
 .error {
-    color: red;
-    font-size: 0.9em;
+    color: red;                          /* Définir la couleur du texte en rouge pour les messages d'erreur */
+    font-size: 0.9em;                    /* Définir une taille de police plus petite pour l'erreur */
 }
 
 .hidden {
-    display: none;
+    display: none;                       /* Cacher l'élément avec la classe 'hidden' */
 }
-
 
 /* Section de présentation */
 .presentation {
-    text-align: center;
-    margin: 40px;
+    text-align: center;                  /* Centrer le texte de la section présentation */
+    margin: 40px;                        /* Ajouter une marge de 40px autour de la section */
 }
 
 .presentation p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
+    font-size: 18px;                     /* Définir la taille de la police des paragraphes */
+    line-height: 1.6;                    /* Définir la hauteur de ligne pour une meilleure lisibilité */
+    color: #333;                         /* Définir la couleur du texte */
 }
 
 .presentation img {
-    width: 200px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;                        /* Définir la largeur des images à 200px */
+    margin-top: 20px;                    /* Ajouter une marge en haut de l'image */
+    border-radius: 8px;                  /* Arrondir les coins de l'image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre autour de l'image */
 }
 
 .presentation strong {
-    color: #2c3e50;
+    color: #2c3e50;                      /* Définir une couleur de texte spécifique pour les éléments strong */
 }
 
 /* Aligner les éléments de la liste des règles à gauche */
 .rules-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-left: 20px;
+    display: flex;                       /* Utiliser Flexbox pour la mise en page */
+    flex-direction: column;              /* Aligner les éléments en colonne */
+    align-items: flex-start;             /* Aligner les éléments à gauche */
+    gap: 10px;                           /* Ajouter un espacement de 10px entre les éléments */
+    margin-left: 20px;                   /* Ajouter une marge à gauche */
 }
 
 .rules-list li {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
+    font-size: 16px;                     /* Définir la taille de la police des éléments de la liste */
+    line-height: 1.6;                    /* Définir la hauteur de ligne pour une meilleure lisibilité */
+    color: #333;                         /* Définir la couleur du texte des éléments de la liste */
 }
 
 /* Profil utilisateur */
 #profile-section {
-    font-size: 16px;
-    color: #333;
+    font-size: 16px;                     /* Définir la taille de la police pour la section de profil */
+    color: #333;                         /* Définir la couleur du texte */
 }
 
 /* Messages d'erreur de validation */
@@ -259,28 +257,73 @@ button:hover {
 #email-error,
 #password-error,
 #confirm-password-error {
-    display: none;
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
+    display: none;                       /* Cacher les messages d'erreur par défaut */
+    color: red;                          /* Définir la couleur du texte en rouge pour les erreurs */
+    font-size: 12px;                     /* Définir une taille de police plus petite pour les erreurs */
+    margin-top: 5px;                     /* Ajouter une marge au-dessus des messages d'erreur */
 }
 
 #username-error-icon,
 #email-error-icon,
 #password-error-icon,
 #confirm-password-error-icon {
-    display: none;
+    display: none;                       /* Cacher les icônes d'erreur par défaut */
 }
 
 #username-success-icon,
 #email-success-icon,
 #password-success-icon,
 #confirm-password-success-icon {
-    display: none;
+    display: none;                       /* Cacher les icônes de succès par défaut */
 }
 
 /* Navbar dynamic state */
 #profile-section {
-    font-weight: bold;
-    color: green;
+    font-weight: bold;                   /* Mettre le texte du profil en gras */
+    color: green;                        /* Changer la couleur du texte en vert */
+}
+
+/* Styles pour les écrans petits (smartphones, tablettes) */
+@media (max-width: 768px) {
+    /* Modifier la disposition de la navbar en flex-direction column pour les petits écrans */
+    nav ul {
+        flex-direction: column;           /* Aligner les éléments de la navbar en colonne */
+        padding: 0;                        /* Enlever le padding */
+    }
+
+    /* Ajouter un espacement entre les éléments de la navbar */
+    nav ul li {
+        margin-bottom: 10px;               /* Ajouter un espacement vertical */
+        margin-right: 0;                   /* Enlever l'espacement horizontal */
+    }
+
+    /* Adapter la taille de la police pour les petits écrans */
+    nav ul li a, nav ul li button {
+        font-size: 14px;                   /* Réduire la taille de la police */
+        padding: 8px 12px;                 /* Adapter le padding pour être plus petit */
+    }
+
+    /* Si tu as une icône hamburger, il faudra peut-être ajouter des règles pour l'afficher */
+    .hamburger-menu {
+        display: block;                   /* Afficher l'icône du menu hamburger */
+        cursor: pointer;                  /* Ajouter un curseur pointer pour l'interactivité */
+        position: absolute;                /* Positionner le menu hamburger de manière absolue */
+        top: 20px;                         /* Placer l'icône en haut */
+        right: 20px;                       /* Placer l'icône à droite */
+    }
+
+    /* Cacher les éléments de la navbar jusqu'à ce que le menu hamburger soit cliqué */
+    nav ul {
+        display: none;                     /* Cacher les éléments de la navbar par défaut */
+        flex-direction: column;           /* Aligner les éléments en colonne */
+        background-color: #2c3e50;         /* Assurer que le fond reste le même */
+        width: 100%;                       /* Assurer que la navbar prend toute la largeur */
+        position: absolute;                /* Positionner la navbar en position absolue */
+        top: 60px;                         /* Placer la navbar juste en dessous du header */
+        left: 0;
+    }
+
+    nav ul.show {
+        display: flex;                     /* Afficher la navbar lorsque le menu est activé */
+    }
 }

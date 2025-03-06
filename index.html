@@ -1,99 +1,114 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Métadonnées de la page -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENI - Memory - Accueil</title>
+
+    <!-- Lien vers le fichier CSS pour la mise en page -->
     <link rel="stylesheet" href="css/index.css">
+
+    <!-- Lien vers la bibliothèque CryptoJS pour le chiffrement (utilisé pour la gestion sécurisée des mots de passe) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 </head>
 <body>
 
-    <!-- Header avec le titre -->
+    <!-- HEADER : Titre du site et menu de navigation -->
     <header>
         <h1>ENI - Memory - Accueil</h1>
-        <!-- Navbar -->
+
+        <!-- NAVBAR : Menu de navigation avec des liens vers différentes pages -->
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><button id="btn-inscription">S'inscrire</button></li>
-                <li><button id="btn-connexion">Se connecter</button></li>
-                <li><button id="btn-logout" style="display: none;">Déconnexion</button></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="game.html">Jouer</a></li>
-                <li><a href="scores.html">Ranking</a></li>
-                <li id="profil-section"></li>
+                <li><a href="index.html">Accueil</a></li> <!-- Lien vers la page d'accueil -->
+                <li><button id="btn-inscription">S'inscrire</button></li> <!-- Bouton d'inscription -->
+                <li><button id="btn-connexion">Se connecter</button></li> <!-- Bouton de connexion -->
+                <li><button id="btn-logout" style="display: none;">Déconnexion</button></li> <!-- Bouton de déconnexion, caché par défaut -->
+                <li><a href="profil.html">Profil</a></li> <!-- Lien vers la page de profil -->
+                <li><a href="game.html">Jouer</a></li> <!-- Lien vers la page de jeu -->
+                <li><a href="scores.html">Ranking</a></li> <!-- Lien vers la page des scores -->
+                <li id="profil-section"></li> <!-- Section profil utilisateur -->
             </ul>
         </nav>
 
-         <!-- Modals  inscription -->
-    <div id="modal-inscription" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-inscription">&times;</span>
-            <h2>Inscription</h2>
-            <form>
-                <label for="username">Nom d'utilisateur</label>
-                <div class="input-container">
-                    <input type="text" id="username" name="username" required>
-                    <img src="ressources/error.svg" class="icon error-icon" id="username-error-icon">
-                    <img src="ressources/check.svg" class="icon success-icon" id="username-success-icon">
-                </div>
-                <span id="username-error" class="error-message">Le login doit contenir au moins 3 caractères.</span>
-    
-                <label for="email">Email</label>
-                <div class="input-container">
-                    <input type="email" id="email" name="email" required>
-                    <img src="ressources/error.svg" class="icon error-icon" id="email-error-icon">
-                    <img src="ressources/check.svg" class="icon success-icon" id="email-success-icon">
-                </div>
-                <span id="email-error" class="error-message">Veuillez entrer un email valide.</span>
-    
-                <label for="password">Mot de passe</label>
-<div class="input-container">
-    <input type="password" id="password" name="password" required>
-    <img src="ressources/error.svg" class="icon error-icon" id="password-error-icon">
-    <img src="ressources/check.svg" class="icon success-icon" id="password-success-icon">
-</div>
-<span id="password-error" class="error-message">Le mot de passe doit contenir au moins 8 caractères, avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.</span>
+        <!-- Modale pour l'inscription : Formulaire d'inscription des utilisateurs -->
+        <div id="modal-inscription" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-inscription">&times;</span> <!-- Bouton de fermeture de la modale -->
+                <h2>Inscription</h2>
+                <form>
+                    <!-- Champ nom d'utilisateur -->
+                    <label for="username">Nom d'utilisateur</label>
+                    <div class="input-container">
+                        <input type="text" id="username" name="username" required>
+                        <img src="ressources/error.svg" class="icon error-icon" id="username-error-icon"> <!-- Icône d'erreur -->
+                        <img src="ressources/check.svg" class="icon success-icon" id="username-success-icon"> <!-- Icône de succès -->
+                    </div>
+                    <span id="username-error" class="error-message">Le login doit contenir au moins 3 caractères.</span>
 
-<!-- Barre de complexité du mot de passe -->
-<div class="password-strength">
-    <div id="password-strength-bar" class="strength-bar"></div>
-    <span id="password-strength-text">Complexité :</span>
-</div>
+                    <!-- Champ email -->
+                    <label for="email">Email</label>
+                    <div class="input-container">
+                        <input type="email" id="email" name="email" required>
+                        <img src="ressources/error.svg" class="icon error-icon" id="email-error-icon"> <!-- Icône d'erreur -->
+                        <img src="ressources/check.svg" class="icon success-icon" id="email-success-icon"> <!-- Icône de succès -->
+                    </div>
+                    <span id="email-error" class="error-message">Veuillez entrer un email valide.</span>
 
-<label for="confirm-password">Confirmer le mot de passe</label>
-<div class="input-container">
-    <input type="password" id="confirm-password" name="confirm-password" required>
-    <img src="ressources/error.svg" class="icon error-icon" id="confirm-password-error-icon">
-    <img src="ressources/check.svg" class="icon success-icon" id="confirm-password-success-icon">
-</div>
-<span id="confirm-password-error" class="error-message">Les mots de passe ne correspondent pas.</span>
+                    <!-- Champ mot de passe -->
+                    <label for="password">Mot de passe</label>
+                    <div class="input-container">
+                        <input type="password" id="password" name="password" required>
+                        <img src="ressources/error.svg" class="icon error-icon" id="password-error-icon"> <!-- Icône d'erreur -->
+                        <img src="ressources/check.svg" class="icon success-icon" id="password-success-icon"> <!-- Icône de succès -->
+                    </div>
+                    <span id="password-error" class="error-message">Le mot de passe doit contenir au moins 8 caractères, avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.</span>
 
-    
-                <button type="submit">S'inscrire</button>
-                <button id="close-modal-btn" class="close-modal-btn">Fermer</button>
-            </form>
+                    <!-- Barre de complexité du mot de passe -->
+                    <div class="password-strength">
+                        <div id="password-strength-bar" class="strength-bar"></div>
+                        <span id="password-strength-text">Complexité :</span>
+                    </div>
+
+                    <!-- Champ confirmation du mot de passe -->
+                    <label for="confirm-password">Confirmer le mot de passe</label>
+                    <div class="input-container">
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <img src="ressources/error.svg" class="icon error-icon" id="confirm-password-error-icon"> <!-- Icône d'erreur -->
+                        <img src="ressources/check.svg" class="icon success-icon" id="confirm-password-success-icon"> <!-- Icône de succès -->
+                    </div>
+                    <span id="confirm-password-error" class="error-message">Les mots de passe ne correspondent pas.</span>
+
+                    <!-- Boutons du formulaire -->
+                    <button type="submit">S'inscrire</button>
+                    <button id="close-modal-btn" class="close-modal-btn">Fermer</button>
+                </form>
+            </div>
         </div>
-    </div>
-    
-<!-- Modals  connexion -->
-    <div id="modal-connexion" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-connexion">&times;</span>
-            <h2>Se connecter</h2>
-            <form id="login-form">
-                <label for="login">Login</label>
-                <input type="text" id="login" name="login" required>
-                <label for="password-login">Mot de passe</label>
-                <input type="password" id="password-login" name="password-login" required>
-                <button type="submit">Se connecter</button>
-            </form>
-        </div>
-    </div>    
+
+        <!-- Modale pour la connexion : Formulaire de connexion des utilisateurs -->
+        <div id="modal-connexion" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-connexion">&times;</span> <!-- Bouton de fermeture de la modale -->
+                <h2>Se connecter</h2>
+                <form id="login-form">
+                    <!-- Champ login -->
+                    <label for="login">Login</label>
+                    <input type="text" id="login" name="login" required>
+
+                    <!-- Champ mot de passe -->
+                    <label for="password-login">Mot de passe</label>
+                    <input type="password" id="password-login" name="password-login" required>
+
+                    <!-- Bouton de connexion -->
+                    <button type="submit">Se connecter</button>
+                </form>
+            </div>
+        </div>    
     </header>
 
-    <!-- Carte de présentation -->
+    <!-- SECTION DE PRÉSENTATION : Information sur le jeu Memory -->
     <section class="presentation">
         <p>Bienvenue sur mon Memory!</p>
         <p>Venez jouer avec nous et faites le meilleur score possible.</p>
@@ -108,6 +123,8 @@
         <p>Si vous voulez relancer une partie, cliquez sur la barre d'espace ou le bouton rejouer.</p>
     </section>
 
+    <!-- Lien vers le fichier JavaScript pour gérer l'interactivité de la page -->
     <script type="module" src="js/index.js"></script>
+
 </body>
 </html>

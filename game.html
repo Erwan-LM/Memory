@@ -1,99 +1,121 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <!-- Métadonnées de la page -->
   <meta charset="UTF-8">
   <title>Memory Game</title>
+
+  <!-- Lien vers les fichiers CSS pour la mise en page -->
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
 
-    <header>
-      <h1>Memory Game</h1>
-        <!-- Navbar -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><button id="btn-inscription">S'inscrire</button></li>
-                <li><button id="btn-connexion">Se connecter</button></li>
-                <li><button id="btn-logout" style="display: none;">Déconnexion</button></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="scores.html">Ranking</a></li>
-                <li id="profil-section"></li>
-            </ul>
-        </nav>
-        <!-- Modals  -->
-<div id="modal-inscription" class="modal">
-  <div class="modal-content">
-      <span class="close" id="close-inscription">&times;</span>
-      <h2>Inscription</h2>
-      <form>
-          <label for="username">Nom d'utilisateur</label>
-          <div class="input-container">
-              <input type="text" id="username" name="username" required>
-              <img src="ressources/error.svg" class="icon error-icon" id="username-error-icon">
-              <img src="ressources/check.svg" class="icon success-icon" id="username-success-icon">
-          </div>
-          <span id="username-error" class="error-message">Le login doit contenir au moins 3 caractères.</span>
-  
-          <label for="email">Email</label>
-          <div class="input-container">
-              <input type="email" id="email" name="email" required>
-              <img src="ressources/error.svg" class="icon error-icon" id="email-error-icon">
-              <img src="ressources/check.svg" class="icon success-icon" id="email-success-icon">
-          </div>
-          <span id="email-error" class="error-message">Veuillez entrer un email valide.</span>
-  
-          <label for="password">Mot de passe</label>
-  <div class="input-container">
-  <input type="password" id="password" name="password" required>
-  <img src="ressources/error.svg" class="icon error-icon" id="password-error-icon">
-  <img src="ressources/check.svg" class="icon success-icon" id="password-success-icon">
+  <!-- HEADER : Titre du site et menu de navigation -->
+  <header>
+    <h1>Memory Game</h1>
+
+    <!-- NAVBAR : Menu de navigation avec des liens vers différentes pages -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li> <!-- Lien vers la page d'accueil -->
+            <li><button id="btn-inscription">S'inscrire</button></li> <!-- Bouton d'inscription -->
+            <li><button id="btn-connexion">Se connecter</button></li> <!-- Bouton de connexion -->
+            <li><button id="btn-logout" style="display: none;">Déconnexion</button></li> <!-- Bouton de déconnexion, caché par défaut -->
+            <li><a href="profil.html">Profil</a></li> <!-- Lien vers la page de profil -->
+            <li><a href="scores.html">Ranking</a></li> <!-- Lien vers la page des scores -->
+            <li id="profil-section"></li> <!-- Section profil utilisateur -->
+        </ul>
+    </nav>
+
+    <!-- MODALES : Formulaires d'inscription et de connexion -->
+    <!-- Modale d'inscription -->
+    <div id="modal-inscription" class="modal">
+      <div class="modal-content">
+          <span class="close" id="close-inscription">&times;</span> <!-- Bouton de fermeture de la modale -->
+          <h2>Inscription</h2>
+          <form>
+              <!-- Champ nom d'utilisateur -->
+              <label for="username">Nom d'utilisateur</label>
+              <div class="input-container">
+                  <input type="text" id="username" name="username" required>
+                  <img src="ressources/error.svg" class="icon error-icon" id="username-error-icon"> <!-- Icône d'erreur -->
+                  <img src="ressources/check.svg" class="icon success-icon" id="username-success-icon"> <!-- Icône de succès -->
+              </div>
+              <span id="username-error" class="error-message">Le login doit contenir au moins 3 caractères.</span>
+
+              <!-- Champ email -->
+              <label for="email">Email</label>
+              <div class="input-container">
+                  <input type="email" id="email" name="email" required>
+                  <img src="ressources/error.svg" class="icon error-icon" id="email-error-icon"> <!-- Icône d'erreur -->
+                  <img src="ressources/check.svg" class="icon success-icon" id="email-success-icon"> <!-- Icône de succès -->
+              </div>
+              <span id="email-error" class="error-message">Veuillez entrer un email valide.</span>
+
+              <!-- Champ mot de passe -->
+              <label for="password">Mot de passe</label>
+              <div class="input-container">
+                  <input type="password" id="password" name="password" required>
+                  <img src="ressources/error.svg" class="icon error-icon" id="password-error-icon"> <!-- Icône d'erreur -->
+                  <img src="ressources/check.svg" class="icon success-icon" id="password-success-icon"> <!-- Icône de succès -->
+              </div>
+              <span id="password-error" class="error-message">Le mot de passe doit contenir au moins 8 caractères, avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.</span>
+
+              <!-- Barre de complexité du mot de passe -->
+              <div class="password-strength">
+                  <div id="password-strength-bar" class="strength-bar"></div>
+                  <span id="password-strength-text">Complexité :</span>
+              </div>
+
+              <!-- Champ de confirmation du mot de passe -->
+              <label for="confirm-password">Confirmer le mot de passe</label>
+              <div class="input-container">
+                  <input type="password" id="confirm-password" name="confirm-password" required>
+                  <img src="ressources/error.svg" class="icon error-icon" id="confirm-password-error-icon"> <!-- Icône d'erreur -->
+                  <img src="ressources/check.svg" class="icon success-icon" id="confirm-password-success-icon"> <!-- Icône de succès -->
+              </div>
+              <span id="confirm-password-error" class="error-message">Les mots de passe ne correspondent pas.</span>
+
+              <!-- Boutons d'inscription -->
+              <button type="submit">S'inscrire</button>
+              <button id="close-modal-btn" class="close-modal-btn">Fermer</button>
+          </form>
+      </div>
+    </div>
+
+    <!-- Modale de connexion -->
+    <div id="modal-connexion" class="modal">
+      <div class="modal-content">
+          <span class="close" id="close-connexion">&times;</span> <!-- Bouton de fermeture de la modale -->
+          <h2>Se connecter</h2>
+          <form id="login-form">
+              <!-- Champ login -->
+              <label for="login">Login</label>
+              <input type="text" id="login" name="login" required>
+
+              <!-- Champ mot de passe -->
+              <label for="password-login">Mot de passe</label>
+              <input type="password" id="password-login" name="password-login" required>
+
+              <!-- Bouton de connexion -->
+              <button type="submit">Se connecter</button>
+          </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCORE ET TIMER : Affichage du score et du temps restant -->
+  <p id="score"> Score: 100</p> <!-- Affiche le score actuel -->
+  <p id="timer">Temps restant: 60s</p> <!-- Affiche le temps restant -->
+
+  <!-- GRILLE DE JEU : La grille pour afficher les cartes du jeu -->
+  <div class="grid">
   </div>
-  <span id="password-error" class="error-message">Le mot de passe doit contenir au moins 8 caractères, avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.</span>
-  
-  <!-- Barre de complexité du mot de passe -->
-  <div class="password-strength">
-  <div id="password-strength-bar" class="strength-bar"></div>
-  <span id="password-strength-text">Complexité :</span>
-  </div>
-  
-  <label for="confirm-password">Confirmer le mot de passe</label>
-  <div class="input-container">
-  <input type="password" id="confirm-password" name="confirm-password" required>
-  <img src="ressources/error.svg" class="icon error-icon" id="confirm-password-error-icon">
-  <img src="ressources/check.svg" class="icon success-icon" id="confirm-password-success-icon">
-  </div>
-  <span id="confirm-password-error" class="error-message">Les mots de passe ne correspondent pas.</span>
-  
-  
-          <button type="submit">S'inscrire</button>
-          <button id="close-modal-btn" class="close-modal-btn">Fermer</button>
-      </form>
-  </div>
-  </div>
-  
-  <!-- Modals  connexion -->
-  <div id="modal-connexion" class="modal">
-  <div class="modal-content">
-      <span class="close" id="close-connexion">&times;</span>
-      <h2>Se connecter</h2>
-      <form id="login-form">
-          <label for="login">Login</label>
-          <input type="text" id="login" name="login" required>
-          <label for="password-login">Mot de passe</label>
-          <input type="password" id="password-login" name="password-login" required>
-          <button type="submit">Se connecter</button>
-      </form>
-    </header>
- 
-    <p id="score"> Score: 100</p>
-    <p id="timer">Temps restant: 60s</p>
-    
-        <div class="grid">
-        </div>
-        <script type="module" src="js/index.js"></script>
-        <script src="js/game.js" charset="utf-8"></script>
-        <script src="js/login.js"></script>
+
+  <!-- Lien vers les fichiers JavaScript pour gérer l'interactivité de la page -->
+  <script type="module" src="js/index.js"></script>
+  <script src="js/game.js" charset="utf-8"></script> <!-- Gère la logique du jeu -->
+  <script src="js/login.js"></script> <!-- Gère la logique de connexion -->
 </body>
 </html>
